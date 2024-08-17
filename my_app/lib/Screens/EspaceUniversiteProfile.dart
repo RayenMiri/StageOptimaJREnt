@@ -96,6 +96,7 @@ class _EspaceUniversiteProfileState extends State<EspaceUniversiteProfile> {
                                             vertical: 10.0),
                                         decoration: AppDecoration.outlinePrimary
                                             .copyWith(
+                                          color: Color(0xffFFF3D3),
                                           border: Border.all(
                                               color: Color(0xffFFB703),
                                               width: 2.0),
@@ -124,7 +125,7 @@ class _EspaceUniversiteProfileState extends State<EspaceUniversiteProfile> {
                                                   CustomImageView(
                                                     imagePath:
                                                         "assets/images/persone_1.svg",
-                                                    height: 20.0,
+                                                    height: 22.0,
                                                     width: 22.0,
                                                   ),
                                                   SizedBox(height: 6.0),
@@ -222,8 +223,8 @@ class _EspaceUniversiteProfileState extends State<EspaceUniversiteProfile> {
               margin: EdgeInsets.fromLTRB(34.0, 16.0, 14.0, 16.0),
               child: CustomImageView(
                 imagePath: "assets/images/fieldicon.svg",
-                height: 12.0,
-                width: 12.0,
+                height: 16.0,
+                width: 16.0,
               ),
             ),
             suffixConstraints: BoxConstraints(
@@ -264,8 +265,8 @@ class _EspaceUniversiteProfileState extends State<EspaceUniversiteProfile> {
                 margin: EdgeInsets.fromLTRB(34.0, 16.0, 14.0, 16.0),
                 child: CustomImageView(
                   imagePath: "assets/images/fieldicon.svg",
-                  height: 12.0,
-                  width: 12.0,
+                  height: 16.0,
+                  width: 16.0,
                 ),
               ),
               suffixConstraints: BoxConstraints(
@@ -341,7 +342,7 @@ class _EspaceUniversiteProfileState extends State<EspaceUniversiteProfile> {
             padding: EdgeInsets.only(left: 4.0),
             child: PhoneInputField(
               controller: phoneNumberController,
-              phoneLabel: "num tel",
+              phoneLabel: "Numéro de téléphone",
             ),
           ),
         ],

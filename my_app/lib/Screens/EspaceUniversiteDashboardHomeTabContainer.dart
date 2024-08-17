@@ -97,7 +97,7 @@ class _EspaceUniversitDashboardHomeTabContainerScreenState
                         indicatorSize: TabBarIndicatorSize.tab,
                         indicator: UnderlineTabIndicator(
                           borderSide:
-                              BorderSide(width: 2.0, color: Color(0xffFFB703)),
+                              BorderSide(width: 3.0, color: Color(0xffFFB703)),
                           insets: EdgeInsets.symmetric(horizontal: 21.0),
                         ),
                         tabs: [
