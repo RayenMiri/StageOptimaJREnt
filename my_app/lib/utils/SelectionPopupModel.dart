@@ -8,7 +8,7 @@ class SelectionPopupModel {
   });
 
   int? id;
-  String title; // changed from 'string' to 'String'
+  String title;
   dynamic value;
   bool isSelected;
 }

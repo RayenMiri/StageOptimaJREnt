@@ -34,7 +34,8 @@ class CustomDropDown extends StatelessWidget {
   final bool filled;
   final FormFieldValidator<SelectionPopupModel>? validator;
   final Function(SelectionPopupModel)? onChanged;
-  final double? maxHeight; // New field for max height
+  final SelectionPopupModel? value;
+  final double? maxHeight;
 
   CustomDropDown({
     Key? key,
@@ -58,19 +59,25 @@ class CustomDropDown extends StatelessWidget {
     this.filled = true,
     this.validator,
     this.onChanged,
-    this.maxHeight, // Initialize the new maxHeight field
+    this.value,
+    this.maxHeight,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Define a hint style with the context
+    final TextStyle hintStyleEffective =
+        hintStyle ?? CustomTextStyles.labelMediumYellow50(context);
+
     return alignment != null
         ? Align(
             alignment: alignment ?? Alignment.center,
-            child: dropDownWidget(context))
-        : dropDownWidget(context);
+            child: dropDownWidget(context, hintStyleEffective))
+        : dropDownWidget(context, hintStyleEffective);
   }
 
-  Widget dropDownWidget(BuildContext context) => Container(
+  Widget dropDownWidget(BuildContext context, TextStyle hintStyleEffective) =>
+      Container(
         width: width ?? double.infinity,
         decoration: boxDecoration,
         child: DropdownButtonFormField<SelectionPopupModel>(
@@ -80,20 +87,19 @@ class CustomDropDown extends StatelessWidget {
           style: textStyle ?? Theme.of(context).textTheme.bodySmall,
           decoration: decoration(context),
           validator: validator,
-          onChanged: (value) {
-            if (value != null) {
-              onChanged?.call(value);
+          onChanged: (SelectionPopupModel? newValue) {
+            if (newValue != null) {
+              onChanged?.call(newValue);
             }
           },
+          value: value,
           items: items?.map((SelectionPopupModel item) {
             return DropdownMenuItem<SelectionPopupModel>(
               value: item,
               child: Text(
                 item.title,
                 overflow: TextOverflow.ellipsis,
-                style: hintStyle ??
-                    CustomTextStyles.labelMediumYellow50
-                        as TextStyle?, // Casted to avoid errors
+                style: hintStyleEffective, // Use the effective hint style
               ),
             );
           }).toList(),
